@@ -23,8 +23,17 @@ body {
     height: 100%;
 }
 
-/* Ai ramas sa adaugi fontul pentru site. */
+.container > * {
+    border: 2px solid blue;
+}
 
 .sidebar {
     grid-row: 1 / -1;
+}
+
+/* Aici mai adaugi stilizari pentru butoane sa nu mai fie interactive */
+.notification,
+.circle-pic {
+    all: unset;
+    cursor: pointer;
 }
