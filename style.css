@@ -72,7 +72,8 @@ input {
     padding: var(--added-size);
 }
 
-header a {
+header a ,
+.sidebar a {
     text-decoration: none;
 }
 
@@ -87,6 +88,7 @@ header > div:nth-last-child(2) div {
     background-color: var(--sidebar-clr);
     color: var(--header-bg-clr);
     padding: calc(var(--font-size) - var(--added-size) - var(--added-size));
+    font-weight: 600;
     width: 100px;
     border: none;
 }
@@ -96,10 +98,6 @@ header > div:nth-last-child(2) div {
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 4fr;
     height: 100%;
-}
-
-.sidebar {
-    grid-row: 1 / -1;
 }
 
 .icon {
@@ -124,9 +122,43 @@ header > div:nth-last-child(2) div {
 }
 
 .notification,
-.circle-pic {
+.circle-pic,
+.group button {
     all: unset;
     cursor: pointer;
+}
+
+.sidebar {
+    grid-row: 1 / -1;
+    background-color: var(--sidebar-clr);
+    color: var(--header-bg-clr);
+    display: grid;
+    grid-template-rows: auto;
+    gap: var(--profile-size);
+    align-content: start;
+    font-size: calc(var(--font-size) + var(--added-size));
+}
+
+.sidebar .icon {
+    display: inline;
+}
+
+.sidebar h1 {
+    font-size: calc(var(--font-size) + var(--font-size) - var(--added-size));
+}
+
+.sidebar .dash.icon {
+    height: calc(var(--icon-size) + var(--icon-size));
+    width: calc(var(--icon-size) + var(--icon-size));
+    margin-right: var(--added-size);
+}
+
+.sidebar .group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--font-size);
+    margin-bottom: var(--font-size);
 }
 
 header a:link {
@@ -143,7 +175,18 @@ header a:hover {
     font-size: calc(var(--font-size) + 1px);
 }
 
-.icon:hover,
+.sidebar a:link,
+.sidebar a:visited {
+    color: var(--header-bg-clr);    
+}
+
+.sidebar a:hover {
+    transition: 0.3s;
+    font-size: 1.4rem;
+}
+
+header .icon:hover,
+main .icon:hover,
 .icon.profile:hover,
 .icon.profile-pic:hover,
 header > div > button:hover {
@@ -151,7 +194,8 @@ header > div > button:hover {
     transition: 0.3s;
 }
 
-.icon:hover {
+header .icon:hover,
+main .icon:hover {
     height: calc(var(--icon-size) + var(--added-size));
     width: calc(var(--icon-size) + var(--added-size));
 }
