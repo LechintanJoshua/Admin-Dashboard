@@ -71,7 +71,8 @@ header > div:nth-child(2) > * {
 }
 
 input {
-    width: 500px;
+    max-width: 500px;
+    width: 100%;
     border-radius: var(--font-size);
     border: none;
     padding: var(--added-size);
@@ -81,12 +82,6 @@ input {
 header a ,
 .sidebar a {
     text-decoration: none;
-}
-
-header > div:nth-last-child(2) div {
-    display: flex;
-    flex-direction: column;
-    gap: var(--added-size);
 }
 
 .btns > button {
@@ -171,6 +166,8 @@ main {
     background-color: var(--main-bg-clr);
     display: grid;
     grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto;
+    padding: 2rem;
     gap: var(--icon-size);    
 }
 
@@ -179,21 +176,27 @@ main .left {
     grid-template-rows: 50px auto;
 }
 
-main .left h2 {
+main .left h2,
+main .right h2 {
     align-self: center;
     font-size: calc(var(--font-size) + var(--added-size));
 }
 
 .card {
-    padding: calc(var(--font-size) + var(--font-size));
-    border-radius: calc(var(--font-size) - var(--added-size));
     display: flex;
-    background-color: var(--header-bg-clr);
     border-left: 0.8rem solid var(--brd-clr);
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     gap: 1.6rem;
+}
+
+.card,
+.panel {
+    box-shadow: 8px 5px 10px 0px var(--shadow-clr);
+    background-color: var(--header-bg-clr);
+    padding: calc(var(--font-size) + var(--font-size));
+    border-radius: calc(var(--font-size) - var(--added-size));
 }
 
 .card .int-icons {
@@ -218,12 +221,49 @@ main .left h2 {
 main .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-template-rows: 450px;
+    grid-auto-rows: minmax(450px, 500px);
     gap: var(--icon-size);
 }
 
+main .right {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    align-content: start;
+    gap: var(--profile-size);
+}
+
+.right .panel-container {
+    display: grid;
+    grid-template-rows: 50px auto;
+    grid-template-columns: minmax(200px, 500px);
+}
+
+.panel-container .panel {
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.panel div {
+    padding: 1rem;
+}
+
+.panel .middle {
+    border-top: 2px solid var(--gr-clr);
+    border-bottom: 2px solid var(--gr-clr);
+}
+
+.description {
+    font-weight: 300;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.trending.panel > div {
+    display: flex;
+}
+
 input:focus {
-    outline: none;
     border: 1.5px solid var(--gr-clr);
 }
 
@@ -259,6 +299,11 @@ header > div > button:hover,
 .img-container {
     cursor: pointer;
     transition: 0.3s;
+}
+
+input:hover {
+    transition: 0.1s;
+    border: 0.5px solid var(--gr-clr);
 }
 
 header .icon:hover,
